@@ -48,9 +48,35 @@
       
     }
   }
+
+  .btn-content{
+    display: none;
+  }
 .action{
   display: flex;
 justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid white;
+}
+
+
+@media (max-width: 1280px){
+  // .coin-miner-title{
+  //   display: none;
+  // }
+
+  // .button-container{
+  //   display: none;
+  // }
+
+  .btn-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+
+    .btn_info{
+
+    }
+  }
 }

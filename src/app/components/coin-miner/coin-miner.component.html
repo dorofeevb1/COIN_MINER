@@ -1,26 +1,26 @@
 
-<div class="coin-miner-container" style="display: flex;">
-    <div >
-        <div class="info-section">
+<div class="coin-miner-container" style="display: flex;" >
+    <div class="coin-miner-title" >
+        <div class="info-section" *ngIf="info === true">
             <p class="totalCoinsDisplay">Balance: {{ coinService.balance }} $</p>
             <p class="levelOfClickerDisplay">Level of Clicker: {{ coinService.clickerLevel }}👆</p>
             <p class="levelOfBatteryDisplay">Level of Battery: {{ coinService.batteryLevel }}🔋</p>
             <p class="levelOfSpeedDisplay">Level of Charger: {{ coinService.chargerLevel }}⚡</p>
-            
+            <button (click)="this.updateInfo()">back</button>
           </div>
-          
-          <div class="skin-selector-section">
+           
+          <div class="skin-selector-section" *ngIf="skins === true" >
             <h1>Choose your skin</h1>
             <app-skin-selector></app-skin-selector>
+              <button (click)="this.updateSkins()">back</button>
           </div>
-    </div>    
-    <div class="centerItems">
+    </div>
+    
+    
+    <div class="centerItems" *ngIf="main === true">
       <div class="title">
-
         <div class="miner__info">
-
           <h2 class="totalCoinsDisplay">{{ coinService.balance }} $</h2>
-
         </div>
       </div>
       <div class="mineContainer">
@@ -30,10 +30,24 @@
       <div class="batterySizeBorder">
         <div class="batterySizeDisplay" [style.width.%]="(coinService.currentCoins / coinService.batteryLevel) * 100"></div>
       </div>
+      <div class="btn-content">
+        <div class="btn_info">
+          <button (click)="this.updateInfo()"><img src="assets/img/infcoloro.svg" alt="">
+          </button>
+        </div>
+        <div class="btn_skin">
+          <button (click)="this.updateSkins()"><img src="assets/img/skin.svg" alt=""></button>
+        </div>
+        <div class="btn_update">
+          <button (click)="this.updateUpdates()"><img src="assets/img/update.svg" alt=""></button>
+        </div>
+        <div class="btn_tasks">
+          <button><img src="" alt=""></button>
+        </div>
+      </div>
     </div>
   
-    <div class="button-container">
-
+    <div class="button-container" *ngIf="updates === true">
       <div class="action">
         <p class="costOfClickDisplay">Add +1 👆 to click</p>
         <button class="add-click" (click)="coinService.upgradeClick()">8000 $</button>
@@ -46,7 +60,7 @@
         <p class="costOfSpeedDisplay">Add +1⚡ to charge speed</p>
         <button class="add-speed" (click)="coinService.upgradeCharger()">500 $</button>
       </div>
-      
+        <button (click)="this.updateUpdates()">back</button>
     </div>
   </div>
   

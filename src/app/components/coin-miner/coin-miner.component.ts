@@ -11,5 +11,42 @@ import { CoinService } from '../../services/coin.service';
   styleUrls: ['./coin-miner.component.scss']
 })
 export class CoinMinerComponent {
+  info = false;
+  main = true;
+  updates = false;
+  skins = false;
   constructor(public coinService: CoinService) {}
+ 
+    updateInfo(){
+    if (this.info === true) {
+      this.info = false;
+      this.main = true
+    }
+    else if (this.info === false) {
+      this.info = true;
+      this.main = false
+    }
+  
+  }
+  updateUpdates() {
+    if (this.updates === true) {
+      this.updates = false;
+      this.main = true
+    }
+    else if (this.updates === false) {
+      this.updates = true;
+      this.main = false
+    }
+
+  }
+  updateSkins(){
+    if (this.skins === true) {
+      this.skins = false;
+      this.main = true
+    }
+    else if (this.skins === false) {
+      this.skins = true;
+      this.main = false
+    }
+  }
 }
