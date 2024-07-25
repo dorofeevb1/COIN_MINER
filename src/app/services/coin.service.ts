@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CoinService {
-  balance = 10000087;
-  clickerLevel = 54;
+  balance = 1000;
+  clickerLevel = 10;
   batteryLevel = 4000;
   chargerLevel = 30;
   currentCoins = 4000;
@@ -76,8 +76,10 @@ export class CoinService {
   }
 
   selectTocken(){
-    this.balance += this.clickerLevel;
-    this.currentCoins -=  this.clickerLevel;
+    if(this.currentCoins > this.clickerLevel){
+      this.balance += this.clickerLevel;
+      this.currentCoins -=  this.clickerLevel;
+    }
   }
 
   private playSound(fileName: string) {

@@ -13,10 +13,11 @@ import { CoinService } from '../../services/coin.service';
 
 export class CoinMinerComponent implements OnInit, OnDestroy {
   private intervalId: any;
-  info = true;
+  info = false;
   main = true;
-  updates = true;
-  skins = true;
+  updates = false;
+  skins = false;
+  tasks = false;
   constructor(public coinService: CoinService) {}
 
   ngOnInit(): void {
@@ -40,7 +41,16 @@ export class CoinMinerComponent implements OnInit, OnDestroy {
   }
 
 
-
+  updateTask(){
+    if (this.tasks === true) {
+      this.tasks = false;
+      this.main = true
+    }
+    else if (this.tasks === false) {
+      this.tasks = true;
+      this.main = false
+    }
+  }
  
     updateInfo(){
     if (this.info === true) {
@@ -75,4 +85,5 @@ export class CoinMinerComponent implements OnInit, OnDestroy {
     }
   }
 
+  
 }

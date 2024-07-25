@@ -61,10 +61,14 @@
 
 .task-item{
   display: flex;
+  justify-content: space-between;
 }
-
-
-
+.back{
+  display: none;
+}
+.btn-content{
+  display: none;
+}
 @media (max-width: 1280px){
   // .coin-miner-title{
   //   display: none;
@@ -84,6 +88,11 @@
   }
   .coin-miner-container {
     justify-content: center;
-
+  }
+  .back{
+    display: flex;
+  }
+  .btn-content{
+    display: flex;
   }
 }

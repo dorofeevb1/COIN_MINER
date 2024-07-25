@@ -8,13 +8,13 @@
             <p class="levelOfClickerDisplay">Level of Clicker: {{ coinService.clickerLevel }}👆</p>
             <p class="levelOfBatteryDisplay">Level of Battery: {{ coinService.batteryLevel }}🔋</p>
             <p class="levelOfSpeedDisplay">Level of Charger: {{ coinService.chargerLevel }}⚡</p>
-            <button (click)="this.updateInfo()">back</button>
+            <button  class="back"  (click)="this.updateInfo()">back</button>
           </div>
            
           <div class="skin-selector-section" *ngIf="skins === true" >
             <h1>Choose your skin</h1>
             <app-skin-selector></app-skin-selector>
-              <button (click)="this.updateSkins()">back</button>
+              <button class="back" (click)="this.updateSkins()">back</button>
           </div>
     </div>
     
@@ -34,7 +34,7 @@
       </div>
       <div class="btn-content">
         <div class="btn_info">
-          <button (click)="this.updateInfo()"><img src="assets/img/infcoloro.svg" alt="">
+          <button (click)="this.updateInfo()"><img src="assets/img/info.svg" alt="">
           </button>
         </div>
         <div class="btn_skin">
@@ -44,7 +44,7 @@
           <button (click)="this.updateUpdates()"><img src="assets/img/update.svg" alt=""></button>
         </div>
         <div class="btn_tasks">
-          <button><img src="" alt=""></button>
+          <button (click)="this.updateTask()"><img src="assets/img/apple.svg" alt=""></button>
         </div>
       </div>
     </div>
@@ -66,9 +66,10 @@
         <p class="costOfSpeedDisplay">Add +1⚡ to charge speed</p>
         <button class="add-speed" (click)="coinService.upgradeCharger()">{{coinService.btnSpeed}}$</button>
       </div>
-
-      
-      <div>
+      <button class="back" (click)="this.updateUpdates()">back</button>
+    </div>
+    <div>
+      <div class="button-container" *ngIf="tasks === true">
         <h1>Tasks</h1>
         <div class="task-list"  *ngFor="let task of coinService.tasks" >
           <div class="task-item">
@@ -79,13 +80,13 @@
             </div>
             <a href={{task.link}}>
               <button class="task-button">Start</button>
-
             </a>          
           </div>
-      </div>
-
-        <button (click)="this.updateUpdates()">back</button>
-
+        </div>
+        <button class="back" (click)="this.updateTask()">back</button>
     </div>
+       
+
+  
   </div>
   
