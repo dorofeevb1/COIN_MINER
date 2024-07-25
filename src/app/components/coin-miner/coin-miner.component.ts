@@ -10,9 +10,13 @@ import { CoinService } from '../../services/coin.service';
   templateUrl: './coin-miner.component.html',
   styleUrls: ['./coin-miner.component.scss']
 })
+
 export class CoinMinerComponent implements OnInit, OnDestroy {
   private intervalId: any;
-
+  info = true;
+  main = true;
+  updates = true;
+  skins = true;
   constructor(public coinService: CoinService) {}
 
   ngOnInit(): void {
@@ -34,4 +38,41 @@ export class CoinMinerComponent implements OnInit, OnDestroy {
       this.startUpdatingCoins(); // Recurse to create a continuous loop
     }, 1000);
   }
+
+
+
+ 
+    updateInfo(){
+    if (this.info === true) {
+      this.info = false;
+      this.main = true
+    }
+    else if (this.info === false) {
+      this.info = true;
+      this.main = false
+    }
+  
+  }
+  updateUpdates() {
+    if (this.updates === true) {
+      this.updates = false;
+      this.main = true
+    }
+    else if (this.updates === false) {
+      this.updates = true;
+      this.main = false
+    }
+
+  }
+  updateSkins(){
+    if (this.skins === true) {
+      this.skins = false;
+      this.main = true
+    }
+    else if (this.skins === false) {
+      this.skins = true;
+      this.main = false
+    }
+  }
+
 }
