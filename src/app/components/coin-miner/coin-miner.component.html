@@ -1,6 +1,7 @@
 
 <div class="coin-miner-container" style="display: flex;">
     <div >
+      <h1>INFO</h1>
         <div class="info-section">
             <p class="totalCoinsDisplay">Balance: {{ coinService.balance }} $</p>
             <p class="levelOfClickerDisplay">Level of Clicker: {{ coinService.clickerLevel }}👆</p>
@@ -24,7 +25,7 @@
         </div>
       </div>
       <div class="mineContainer">
-        <img class="coin" [src]="coinService.selectedSkin" alt="img of bitcoin">
+        <img class="coin" (click)="coinService.selectTocken()" [src]="coinService.selectedSkin" alt="img of bitcoin">
       </div>
       <h3 class="batteryDisplay">{{ coinService.currentCoins }}🔋</h3>
       <div class="batterySizeBorder">
@@ -33,20 +34,35 @@
     </div>
   
     <div class="button-container">
-
+      <h1>UPGRADE</h1>
       <div class="action">
         <p class="costOfClickDisplay">Add +1 👆 to click</p>
-        <button class="add-click" (click)="coinService.upgradeClick()">8000 $</button>
+        <button class="add-click" (click)="coinService.upgradeClick()">{{coinService.btnClick}} $</button>
       </div>
       <div class="action">
         <p class="costOfBatteryDisplay">Add +500🔋 to battery</p>
-        <button class="add-battery" (click)="coinService.upgradeBattery()">500 $</button>
+        <button class="add-battery" (click)="coinService.upgradeBattery()">{{coinService.btnBattery}} $</button>
       </div>
       <div class="action">
         <p class="costOfSpeedDisplay">Add +1⚡ to charge speed</p>
-        <button class="add-speed" (click)="coinService.upgradeCharger()">500 $</button>
+        <button class="add-speed" (click)="coinService.upgradeCharger()">{{coinService.btnSpeed}}$</button>
       </div>
       
+      <div>
+        <h1>Tasks</h1>
+        <div class="task-list"  *ngFor="let task of coinService.tasks" >
+          <div class="task-item">
+            <div class="task-video-icon">▶</div>
+            <div class="task-info">
+              <p class="description">{{task.description}}</p>
+              <p class="reward">+{{task.reward}}BP</p>
+            </div>
+            <a href={{task.link}}>
+              <button class="task-button">Start</button>
+
+            </a>          
+          </div>
+      </div>
     </div>
   </div>
   
