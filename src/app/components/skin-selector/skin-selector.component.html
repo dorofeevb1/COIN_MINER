@@ -1,0 +1,9 @@
+<div class="skin-selector">
+    <div *ngFor="let skin of coinService.skins">
+      <button [ngStyle]="{'border': skin.selected ? '3px solid lightgreen' : '3px solid red'}" (click)="coinService.selectSkin(skin)">
+        <img [src]="skin.image" [alt]="skin.alt">
+      </button>
+      <button class="buySkinButton">{{ skin.selected ? 'Bought ✅' : skin.price + ' $' }}</button>
+    </div>
+  </div>
+  

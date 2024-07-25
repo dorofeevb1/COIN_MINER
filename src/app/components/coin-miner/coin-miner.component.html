@@ -1,0 +1,52 @@
+
+<div class="coin-miner-container" style="display: flex;">
+    <div >
+        <div class="info-section">
+            <p class="totalCoinsDisplay">Balance: {{ coinService.balance }} $</p>
+            <p class="levelOfClickerDisplay">Level of Clicker: {{ coinService.clickerLevel }}👆</p>
+            <p class="levelOfBatteryDisplay">Level of Battery: {{ coinService.batteryLevel }}🔋</p>
+            <p class="levelOfSpeedDisplay">Level of Charger: {{ coinService.chargerLevel }}⚡</p>
+            
+          </div>
+          
+          <div class="skin-selector-section">
+            <h1>Choose your skin</h1>
+            <app-skin-selector></app-skin-selector>
+          </div>
+    </div>    
+    <div class="centerItems">
+      <div class="title">
+
+        <div class="miner__info">
+
+          <h2 class="totalCoinsDisplay">{{ coinService.balance }} $</h2>
+
+        </div>
+      </div>
+      <div class="mineContainer">
+        <img class="coin" [src]="coinService.selectedSkin" alt="img of bitcoin">
+      </div>
+      <h3 class="batteryDisplay">{{ coinService.currentCoins }}🔋</h3>
+      <div class="batterySizeBorder">
+        <div class="batterySizeDisplay" [style.width.%]="(coinService.currentCoins / coinService.batteryLevel) * 100"></div>
+      </div>
+    </div>
+  
+    <div class="button-container">
+
+      <div class="action">
+        <p class="costOfClickDisplay">Add +1 👆 to click</p>
+        <button class="add-click" (click)="coinService.upgradeClick()">8000 $</button>
+      </div>
+      <div class="action">
+        <p class="costOfBatteryDisplay">Add +500🔋 to battery</p>
+        <button class="add-battery" (click)="coinService.upgradeBattery()">500 $</button>
+      </div>
+      <div class="action">
+        <p class="costOfSpeedDisplay">Add +1⚡ to charge speed</p>
+        <button class="add-speed" (click)="coinService.upgradeCharger()">500 $</button>
+      </div>
+      
+    </div>
+  </div>
+  
